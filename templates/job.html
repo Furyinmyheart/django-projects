@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}
+    Работа
+{% endblock %}
+
+{% block image %}
+	<img class="my_photo" src="../static/img/job.jpg" width="260" alt="Работа">
+{% endblock%}
+
+{% block content %}
+<div class="content">
+
+	{% for work in work_places %}
+		<div class="work_places">
+			{{work.organization}}
+			<div class="work_places">
+			{{work.position}}
+			</div>
+		</div>
+	{% endfor %}
+
+</div>
+{% endblock %}

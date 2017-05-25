@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}
+    Учёба
+{% endblock %}
+
+{% block image %}
+	<img class="my_photo" src="../static/img/obuchenie.jpg" width="260" alt="Учёба">
+{% endblock %}
+
+{% block content %}
+<div class="content">
+
+	{% for study in study_places %}
+		<div class="study_places">
+			{{study.place_of_study}}
+			<div class="study_places">
+			{{study.discipline}}
+			</div>
+		</div>
+	{% endfor %}
+
+</div>
+{% endblock %}

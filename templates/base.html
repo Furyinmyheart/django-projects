@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>{% block title%} {% endblock %} </title>
+    <link href="/static/css/theme.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"> </script>
+</head>
+<body>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('.spoiler_title').click(function(){
+$(this).parent().children('.spoiler_body').slideToggle(500);
+javascript:void(0);
+});
+});
+</script>
+
+
+<div class="top">
+<img src="../static/img/logo.png" width="40" alt="Лого">
+</div>
+
+<div class="big_container">
+    <div class="div_menu">
+            <ul class="ul_menu">
+                <li ><a href="index.html">Обо мне</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+    </div>
+    <div class="img_block">
+        <div>
+            {% block image %}
+
+            {% endblock%}
+        </div>
+    </div>
+
+
+<div class="container">
+{% block content %} {% endblock %}
+
+
+</div>
+
+</div>
+
+<div class="footer">
+</div>
+
+
+</body>
+</html>
+

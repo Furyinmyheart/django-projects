@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+    <link href="/static/css/theme.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"> </script>
+
+</head>
+<body>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('.spoiler_title_auth').click(function(){
+$(this).parent().children('.spoiler_body_auth').slideToggle(500);
+javascript:void(0);
+});
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('.spoiler_title_2').click(function(){
+$(this).parent().children('.spoiler_body').slideToggle(500);
+javascript:void(0);
+});
+});
+</script>
+
+<div class="top">
+</div>
+
+<div class="big_container">
+
+<div class="container">
+
+    <div class="content">
+        <div>
+            <div class="spoiler_title_auth"><img src= "{% static 'img/logo_b.png' %}" width="400"
+                                                 alt="logo_big"></div>
+            <div class="spoiler_body_auth">
+                <div class="login_form">
+                    <form method="post" action="/user/login/">
+                        {% csrf_token %}
+                        <input type="text" name="login" value="" placeholder="Логин">
+                        <input type="text" name="password" value="" placeholder="Пароль">
+                        <input type="submit" class="button" value="Войти">
+                    </form>
+                    {% if errors %}
+                    <p class="text_danger"> Неправильный логин или пароль!</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="normal_text">
+        <p>Нажмите на изображение если Вы зарегистрированный пользователь.</p><br>
+        <p>Если Вы ещё не зарегистрированны на нашем сайте то нажмите кнопку ниже: </p>
+    </div>
+    <div>
+        <b class="spoiler_title_2">ЗАРЕГИСТРИРОВАТЬСЯ</b>
+            <div class="spoiler_body">
+                <div class="login_form">
+
+                    <form method="post" role="form" action="/user/registration/">
+                        {% csrf_token %}
+                        <p><input type="text" name="email" value="" placeholder="E-mail" required></p>
+                        <p><input type="text" name="username" value="" placeholder="Логин" required></p>
+                        <p><input type="text" name="password1" value="" placeholder="Пароль" required></p>
+                        <p><input type="text" name="password2" value="" placeholder="Повторите пароль" required></p>
+                        <p><input type="submit" class="button" value="Зарегистрироваться" required></p>
+                    </form>
+
+                </div>
+            </div>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

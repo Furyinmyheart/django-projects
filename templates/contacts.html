@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}
+    Контакты
+{% endblock %}
+{% block image %}
+<img class="my_photo" src="../static/img/city.jpg" width="260" alt="Моё фото">
+{% endblock%}
+{% block content %}
+<div class="content">
+    <div class="contacts">
+        Телефон: {{phone}}
+    </div>
+    <div class="contacts">
+        E-Mail: {{email}}
+    </div>
+
+
+    {{ map|safe }}
+</div>
+{% endblock %}

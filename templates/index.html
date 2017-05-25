@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}
+    Обо мне
+{% endblock %}
+{% block image %}
+<img class="my_photo" src="../static/img/my_photo.jpg" width="260" alt="Моё фото">
+{% endblock%}
+{% block content %}
+<div class="content">
+	<div class="about_me_block">
+		{{ name }} {{ nickname }} {{ surname }}
+	</div>
+	<div class="about_me_block">
+		День рождения: {{ birthday_date }}
+	</div>
+	<div class="about_me_block">
+		Семейное положение: {{ family }}
+	</div>
+
+
+
+<div class="info_block">
+    <i class="spoiler_title">Мои места учёбы:</i>
+    <div class="spoiler_body">
+        <div class="about_me_block">
+        {% for study in study_places %}
+            <div class="about_me_block">
+                {{study.place_of_study}}
+                <div class="about_me_block">
+                    {{study.discipline}}
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+    <div class="info_block">
+        <i class="spoiler_title">Мои места работы:</i>
+        <div class="spoiler_body">
+            <div class="about_me_block">
+            {% for work in work_places %}
+	             <div class="about_me_block">
+	        	    {{work.organization}}
+	        	    <div class="about_me_block">
+	        	    {{work.position}}
+	        	    </div>
+	            </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+
+	<div class="info_block">
+        <i class="spoiler_title">Мои увлечения:</i>
+        <div class="spoiler_body">
+            <div class="about_me_block">
+	        {% for hobby in my_hobby %}
+                <div class="about_me_block">
+				{{hobby}}
+			    </div>
+	        {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
