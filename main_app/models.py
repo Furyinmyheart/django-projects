@@ -13,5 +13,5 @@ class Hobby(models.Model):
 
 class Study(models.Model):
     place_of_study = models.CharField(verbose_name='Место учёбы', max_length=32)
-    discipline = models.CharField(verbose_name='Дисциполина', max_length=32)
+    discipline = models.CharField(verbose_name='Дисциплина', max_length=32)
 
